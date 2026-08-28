@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Manara Group Quality Assurance - International standards, certifications, and commitment to excellence in seafood export." />
+    <title>Quality Assurance | Manara Group</title>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+           ROOT & RESET – Same as all pages
+           ============================================================ */
+        :root {
+            --maroon: #71152b;
+            --maroon2: #8b2038;
+            --gold: #e8b12f;
+            --gold-light: #f3d06e;
+            --ink: #0f0f1a;
+            --muted: #5a5a6e;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --line: #e9edf2;
+            --shadow-sm: 0 8px 30px rgba(20, 20, 30, 0.08);
+            --shadow-md: 0 18px 45px rgba(20, 20, 30, 0.12);
+            --shadow-lg: 0 30px 60px rgba(20, 20, 30, 0.15);
+            --radius: 12px;
+            --transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           UTILITY ANIMATIONS
+           ============================================================ */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes scaleIn {
+            0% { opacity: 0; transform: scale(0.92); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(232, 177, 47, 0.3); }
+            50% { box-shadow: 0 0 0 12px rgba(232, 177, 47, 0); }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+        .animate-fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+        .animate-fade-left.visible { opacity: 1; transform: translateX(0); }
+
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+        .animate-fade-right.visible { opacity: 1; transform: translateX(0); }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+        .animate-scale.visible { opacity: 1; transform: scale(1); }
+
+        .kicker {
+            display: inline-block;
+            background: rgba(232, 177, 47, 0.15);
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(232, 177, 47, 0.2);
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-head .lead {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        h2 {
+            font-size: 38px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--ink);
+            margin: 10px 0 18px;
+            letter-spacing: -1px;
+        }
+
+        h2 span { color: var(--maroon); }
+
+        /* ============================================================
+           HEADER – Same as all pages
+           ============================================================ */
+        header {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.3s ease;
+        }
+        header.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06); }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+            border-radius: var(--radius);
+            display: grid;
+            place-items: center;
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+            box-shadow: 0 6px 16px rgba(113, 21, 43, 0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--ink);
+            letter-spacing: -0.3px;
+        }
+        .logo-text .brand span { color: var(--maroon); }
+
+        .logo-text .tagline {
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--muted);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: var(--ink);
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon);
+            transition: width 0.3s var(--transition);
+        }
+
+        nav a:hover::after,
+        nav a.active::after { width: 100%; }
+
+        nav a:hover,
+        nav a.active { color: var(--maroon); }
+
+        .btn-nav {
+            background: var(--maroon);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s var(--transition);
+            box-shadow: 0 4px 14px rgba(113, 21, 43, 0.25);
+        }
+
+        .btn-nav:hover {
+            background: var(--maroon2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(113, 21, 43, 0.35);
+        }
+        .btn-nav::after { display: none !important; }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: 0;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--ink);
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .mobile-menu:hover { background: var(--light); }
+
+        /* ----- DROPDOWN ----- */
+        .dropdown { position: relative; }
+
+        .dropdown-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--ink);
+            font-weight: 500;
+            padding: 4px 0;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .dropdown-trigger::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon);
+            transition: width 0.3s var(--transition);
+        }
+
+        .dropdown:hover .dropdown-trigger::after,
+        .dropdown-trigger.active::after { width: 100%; }
+
+        .dropdown:hover .dropdown-trigger { color: var(--maroon); }
+
+        .dropdown .arrow {
+            font-size: 10px;
+            transition: transform 0.3s var(--transition);
+        }
+        .dropdown:hover .arrow { transform: rotate(180deg); }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            background: var(--white);
+            min-width: 200px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 8px 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu li { list-style: none; }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 22px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            transition: all 0.2s var(--transition);
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: var(--light);
+            color: var(--maroon);
+            padding-left: 28px;
+        }
+        .dropdown-menu li a::after { display: none !important; }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--maroon);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(113, 21, 43, 0.3);
+        }
+        .btn-primary:hover {
+            background: var(--maroon2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(113, 21, 43, 0.4);
+        }
+
+        .btn-outline {
+            border-color: var(--maroon);
+            color: var(--maroon);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--maroon);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(113, 21, 43, 0.15);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--maroon);
+            box-shadow: 0 6px 20px rgba(232, 177, 47, 0.3);
+        }
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(232, 177, 47, 0.4);
+        }
+
+        /* ============================================================
+           QUALITY HERO
+           ============================================================ */
+        .quality-hero {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.97) 0%,
+                    rgba(255, 255, 255, 0.90) 40%,
+                    rgba(255, 255, 255, 0.10) 75%),
+                url("https://images.unsplash.com/photo-1586525195428-d499e113d09b?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;
+            animation: scaleIn 1.2s var(--transition) forwards;
+        }
+
+        .quality-hero .container {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quality-hero-content {
+            max-width: 620px;
+            padding: 40px 0;
+        }
+
+        .quality-hero-content h1 {
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .quality-hero-content h1 span { color: var(--maroon); }
+
+        .quality-hero-content p {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        /* ============================================================
+           QUALITY BADGE
+           ============================================================ */
+        .quality-badge-section {
+            padding: 40px 0 0;
+            text-align: center;
+        }
+
+        .quality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 24px;
+            background: var(--light);
+            padding: 18px 40px;
+            border-radius: 60px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(232, 177, 47, 0.2);
+        }
+
+        .quality-badge .badge-icon {
+            font-size: 40px;
+        }
+
+        .quality-badge .badge-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+
+        .quality-badge .badge-text small {
+            font-weight: 400;
+            color: var(--muted);
+            display: block;
+            font-size: 13px;
+        }
+
+        /* ============================================================
+           STANDARDS GRID
+           ============================================================ */
+        .standards-section {
+            padding: 70px 0 80px;
+            background: var(--white);
+        }
+
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .standard-card {
+            background: var(--light);
+            padding: 32px 24px 28px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.4s var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .standard-card:hover {
+            background: var(--white);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-bottom-color: var(--gold);
+        }
+
+        .standard-card .std-icon {
+            font-size: 40px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .standard-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 8px;
+        }
+
+        .standard-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           QUALITY PROCESS TIMELINE
+           ============================================================ */
+        .process-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 38px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: var(--gold);
+            opacity: 0.3;
+            border-radius: 4px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--maroon);
+            color: var(--white);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0 auto 16px;
+            box-shadow: 0 6px 20px rgba(113, 21, 43, 0.2);
+        }
+
+        .process-step:hover .step-number {
+            background: var(--gold);
+            color: var(--maroon);
+            transform: scale(1.06);
+            transition: all 0.3s var(--transition);
+        }
+
+        .process-step h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           CERTIFICATIONS
+           ============================================================ */
+        .certifications-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cert-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--light);
+            padding: 20px 24px;
+            border-radius: var(--radius);
+            transition: all 0.3s var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .cert-card:hover {
+            background: var(--white);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-card .cert-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .cert-card .cert-info strong {
+            display: block;
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .cert-card .cert-info span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ============================================================
+           TESTING & COMPLIANCE
+           ============================================================ */
+        .testing-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .testing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .testing-image {
+            height: 360px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .testing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition);
+        }
+
+        .testing-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .testing-content .checklist {
+            display: grid;
+            gap: 14px;
+            margin: 20px 0 28px;
+        }
+
+        .testing-content .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--muted);
+            padding: 4px 0;
+            transition: transform 0.3s var(--transition);
+        }
+
+        .testing-content .checklist li:hover {
+            transform: translateX(6px);
+        }
+
+        .testing-content .checklist li::before {
+            content: "✓";
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--maroon);
+            color: var(--white);
+            display: grid;
+            place-items: center;
+            font-size: 13px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(113, 21, 43, 0.2);
+        }
+
+        /* ============================================================
+           TRACEABILITY
+           ============================================================ */
+        .traceability-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .trace-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .trace-item {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            background: var(--light);
+            transition: all 0.4s var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .trace-item:hover {
+            background: var(--white);
+            border-color: var(--gold);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .trace-item .trace-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .trace-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 4px;
+        }
+
+        .trace-item p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+           CTA – Same as all pages
+           ============================================================ */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+            color: var(--white);
+        }
+
+        .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            margin: 0 0 6px;
+            font-size: 34px;
+        }
+
+        .cta p {
+            opacity: 0.85;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--maroon);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            font-weight: 700;
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============================================================
+           FOOTER – Same as all pages
+           ============================================================ */
+        footer {
+            background: #0f0f1a;
+            color: #c8c8d4;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        footer h3 {
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        footer p, footer li {
+            font-size: 13px;
+            color: #a0a0b4;
+            line-height: 1.7;
+        }
+
+        footer ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+
+        footer ul a { transition: color 0.2s; }
+        footer ul a:hover { color: var(--gold); }
+
+        .copyright {
+            padding-top: 22px;
+            text-align: center;
+            font-size: 13px;
+            color: #6a6a7e;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .standards-grid { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+            .trace-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            nav { display: none; }
+            .mobile-menu { display: block; }
+            .quality-hero { min-height: 360px; background-position: 60% center; }
+            .quality-hero .container { min-height: 360px; }
+            .quality-hero-content h1 { font-size: 38px; }
+            .process-timeline { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .process-timeline::before { display: none; }
+            .testing-grid { grid-template-columns: 1fr; gap: 30px; }
+            .testing-image { height: 280px; }
+            .cta-inner { flex-direction: column; text-align: center; }
+            .quality-badge { padding: 14px 24px; flex-wrap: wrap; justify-content: center; }
+
+            /* Mobile dropdown */
+            .dropdown { position: static; }
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                opacity: 1;
+                pointer-events: auto;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding: 4px 0 8px 20px;
+                display: none;
+                transition: none;
+            }
+            .dropdown.open .dropdown-menu { display: block; }
+            .dropdown .arrow { font-size: 12px; }
+        }
+
+        @media (max-width: 720px) {
+            header { height: 70px; }
+            .logo-icon { width: 38px; height: 38px; font-size: 18px; }
+            .logo-text .brand { font-size: 16px; }
+            .quality-hero { min-height: 340px; }
+            .quality-hero .container { min-height: 340px; }
+            .quality-hero-content h1 { font-size: 32px; }
+            .quality-hero-content p { font-size: 15px; }
+            h2 { font-size: 30px; }
+            .standards-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .cert-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .trace-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+            .process-timeline { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .standards-section, .process-section, .certifications-section,
+            .testing-section, .traceability-section { padding: 60px 0; }
+        }
+
+        @media (max-width: 480px) {
+            .cta h2 { font-size: 26px; }
+            .quality-hero-content h1 { font-size: 28px; }
+            .section-head .lead { font-size: 14px; }
+            .quality-badge { flex-direction: column; gap: 8px; text-align: center; }
+            .quality-badge .badge-icon { font-size: 32px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HEADER – Same as all pages
+    ============================================================ -->
+    <header id="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">
+                    <span class="brand">GROUP <span>MANARA</span></span>
+                    <span class="tagline">global seafood partners</span>
+                </div>
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+
+                <!-- Products Dropdown -->
+                <div class="dropdown">
+                    <a href="#products" class="dropdown-trigger">
+                        Products <span class="arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#products">Exotic</a></li>
+                        <li><a href="index.html#products">Seafood</a></li>
+                        <li><a href="index.html#products">Meat</a></li>
+                        <li><a href="index.html#products">Poultry</a></li>
+                        <li><a href="index.html#products">Vegetables</a></li>
+                        <li><a href="index.html#products">Indian Breads</a></li>
+                        <li><a href="index.html#products">Breaded &amp; Wraps</a></li>
+                        <li><a href="index.html#products">Others</a></li>
+                    </ul>
+                </div>
+
+                <a href="why.html">Why Us</a>
+                <a href="quality.html" class="active">Quality</a>
+                <a href="index.html#sustainability">Sustainability</a>
+                <a href="index.html#contact" class="btn-nav">Get In Touch →</a>
+            </nav>
+
+            <button class="mobile-menu" onclick="alert('🚀 Navigation: Home | About | Products | Why Us | Quality | Sustainability | Contact')">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    QUALITY HERO
+    ============================================================ -->
+    <section class="quality-hero">
+        <div class="container">
+            <div class="quality-hero-content">
+                <span class="kicker animate-fade-up visible">Quality Assurance</span>
+                <h1 class="animate-fade-up visible" style="transition-delay:0.1s;">
+                    Uncompromising <span>Quality</span><br />at Every Step
+                </h1>
+                <p class="animate-fade-up visible" style="transition-delay:0.2s;">
+                    From sourcing to processing to delivery, Manara Group adheres to the
+                    highest international standards. Our rigorous quality control ensures
+                    that every product meets global expectations for safety, freshness, and excellence.
+                </p>
+                <div class="animate-fade-up visible" style="transition-delay:0.3s;">
+                    <a href="#standards" class="btn btn-primary">Our Standards →</a>
+                    <a href="#certifications" class="btn btn-outline">Certifications →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    QUALITY BADGE
+    ============================================================ -->
+    <section class="quality-badge-section animate-fade-up">
+        <div class="container">
+            <div class="quality-badge">
+                <span class="badge-icon">🏅</span>
+                <span class="badge-text">
+                    100% Quality Assured
+                    <small>ISO 22000 · HACCP · MSC Certified</small>
+                </span>
+                <span style="font-size:28px;color:var(--gold);">★</span>
+                <span class="badge-text" style="font-size:14px;">
+                    Trusted in 25+ Countries
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    QUALITY STANDARDS
+    ============================================================ -->
+    <section class="standards-section" id="standards">
+        <div class="container">
+            <div class="section-head animate-fade-up">
+                <span class="kicker">Our Standards</span>
+                <h2>Excellence is <span>Our Standard</span></h2>
+                <p class="lead">Every product we export meets the most stringent international quality benchmarks.</p>
+            </div>
+
+            <div class="standards-grid">
+                <div class="standard-card animate-scale" style="transition-delay:0.05s;">
+                    <span class="std-icon">🔬</span>
+                    <h3>Microbiological Testing</h3>
+                    <p>Every batch is tested for pathogens, bacteria, and contaminants to ensure food safety.</p>
+                </div>
+
+                <div class="standard-card animate-scale" style="transition-delay:0.10s;">
+                    <span class="std-icon">🧪</span>
+                    <h3>Chemical &amp; Residue Analysis</h3>
+                    <p>Rigorous testing for antibiotics, heavy metals, and chemical residues to meet global limits.</p>
+                </div>
+
+                <div class="standard-card animate-scale" style="transition-delay:0.15s;">
+                    <span class="std-icon">❄️</span>
+                    <h3>Temperature Control</h3>
+                    <p>Cold chain management from processing to delivery, preserving freshness and quality.</p>
+                </div>
+
+                <div class="standard-card animate-scale" style="transition-delay:0.20s;">
+                    <span class="std-icon">📦</span>
+                    <h3>Packaging Integrity</h3>
+                    <p>Premium packaging materials that protect product quality during transit and storage.</p>
+                </div>
+
+                <div class="standard-card animate-scale" style="transition-delay:0.25s;">
+                    <span class="std-icon">👁️</span>
+                    <h3>Visual &amp; Sensory Inspection</h3>
+                    <p>Expert grading of size, color, texture, and freshness by trained quality inspectors.</p>
+                </div>
+
+                <div class="standard-card animate-scale" style="transition-delay:0.30s;">
+                    <span class="std-icon">📋</span>
+                    <h3>Traceability Systems</h3>
+                    <p>Full traceability from source to customer, ensuring transparency and accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    QUALITY PROCESS TIMELINE
+    ============================================================ -->
+    <section class="process-section animate-fade-up">
+        <div class="container">
+            <div class="section-head">
+                <span class="kicker">Our Process</span>
+                <h2>From Ocean to <span>World</span></h2>
+                <p class="lead">Every step is guided by quality, safety, and excellence.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step animate-scale" style="transition-delay:0.05s;">
+                    <div class="step-number">1</div>
+                    <h4>Sourcing</h4>
+                    <p>From trusted fishermen and certified farms with sustainable practices.</p>
+                </div>
+                <div class="process-step animate-scale" style="transition-delay:0.10s;">
+                    <div class="step-number">2</div>
+                    <h4>Processing</h4>
+                    <p>Advanced processing with strict hygiene and temperature controls.</p>
+                </div>
+                <div class="process-step animate-scale" style="transition-delay:0.15s;">
+                    <div class="step-number">3</div>
+                    <h4>Testing</h4>
+                    <p>Rigorous laboratory testing for safety, quality, and compliance.</p>
+                </div>
+                <div class="process-step animate-scale" style="transition-delay:0.20s;">
+                    <div class="step-number">4</div>
+                    <h4>Delivery</h4>
+                    <p>Cold chain logistics ensuring freshness from our door to yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CERTIFICATIONS
+    ============================================================ -->
+    <section class="certifications-section" id="certifications">
+        <div class="container">
+            <div class="section-head animate-fade-up">
+                <span class="kicker">Accreditations</span>
+                <h2>Recognized by <span>Global Authorities</span></h2>
+                <p class="lead">Our certifications reflect our unwavering commitment to quality and food safety.</p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-card animate-scale" style="transition-delay:0.05s;">
+                    <span class="cert-icon">🏅</span>
+                    <div class="cert-info">
+                        <strong>ISO 22000</strong>
+                        <span>Food Safety Management System</span>
+                    </div>
+                </div>
+                <div class="cert-card animate-scale" style="transition-delay:0.10s;">
+                    <span class="cert-icon">🔬</span>
+                    <div class="cert-info">
+                        <strong>HACCP</strong>
+                        <span>Hazard Analysis &amp; Critical Control Points</span>
+                    </div>
+                </div>
+                <div class="cert-card animate-scale" style="transition-delay:0.15s;">
+                    <span class="cert-icon">🌊</span>
+                    <div class="cert-info">
+                        <strong>MSC Certified</strong>
+                        <span>Marine Stewardship Council – Sustainable Seafood</span>
+                    </div>
+                </div>
+                <div class="cert-card animate-scale" style="transition-delay:0.20s;">
+                    <span class="cert-icon">🌍</span>
+                    <div class="cert-info">
+                        <strong>GlobalG.A.P.</strong>
+                        <span>Responsible Farming Practices</span>
+                    </div>
+                </div>
+                <div class="cert-card animate-scale" style="transition-delay:0.25s;">
+                    <span class="cert-icon">♻️</span>
+                    <div class="cert-info">
+                        <strong>Zero Waste</strong>
+                        <span>Eco-Friendly &amp; Sustainable Operations</span>
+                    </div>
+                </div>
+                <div class="cert-card animate-scale" style="transition-delay:0.30s;">
+                    <span class="cert-icon">🇪🇺</span>
+                    <div class="cert-info">
+                        <strong>EU Export Compliant</strong>
+                        <span>Meets European Food Safety Standards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TESTING & COMPLIANCE
+    ============================================================ -->
+    <section class="testing-section animate-fade-up">
+        <div class="container">
+            <div class="testing-grid">
+                <div class="testing-image">
+                    <img src="https://images.unsplash.com/photo-1586525195428-d499e113d09b?auto=format&fit=crop&w=800&q=85" alt="Quality testing lab" />
+                </div>
+                <div class="testing-content">
+                    <span class="kicker">Testing &amp; Compliance</span>
+                    <h2>Rigorous Testing, <span>Every Time</span></h2>
+                    <p class="lead" style="font-size:15px;color:var(--muted);">
+                        Our in-house laboratory and third-party partnerships ensure every product
+                        is tested against the most demanding international standards.
+                    </p>
+                    <ul class="checklist">
+                        <li>Microbiological testing for pathogens and bacteria</li>
+                        <li>Chemical residue analysis for antibiotics and heavy metals</li>
+                        <li>Allergen testing and cross-contamination prevention</li>
+                        <li>Organoleptic testing for taste, texture, and freshness</li>
+                        <li>Third-party validation from accredited laboratories</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TRACEABILITY
+    ============================================================ -->
+    <section class="traceability-section animate-fade-up">
+        <div class="container">
+            <div class="section-head">
+                <span class="kicker">Traceability</span>
+                <h2>From Source to <span>Table</span></h2>
+                <p class="lead">Complete transparency at every stage of the supply chain.</p>
+            </div>
+
+            <div class="trace-grid">
+                <div class="trace-item animate-scale" style="transition-delay:0.05s;">
+                    <span class="trace-icon">🌊</span>
+                    <h4>Sourcing</h4>
+                    <p>Origin tracking from fishermen and certified farms.</p>
+                </div>
+                <div class="trace-item animate-scale" style="transition-delay:0.10s;">
+                    <span class="trace-icon">🏭</span>
+                    <h4>Processing</h4>
+                    <p>Batch tracking through processing and packaging.</p>
+                </div>
+                <div class="trace-item animate-scale" style="transition-delay:0.15s;">
+                    <span class="trace-icon">📋</span>
+                    <h4>Documentation</h4>
+                    <p>Full documentation for every shipment and batch.</p>
+                </div>
+                <div class="trace-item animate-scale" style="transition-delay:0.20s;">
+                    <span class="trace-icon">📦</span>
+                    <h4>Delivery</h4>
+                    <p>Real-time tracking from our facility to your destination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA – Same as all pages
+    ============================================================ -->
+    <section class="cta">
+        <div class="container cta-inner">
+            <div class="animate-fade-left">
+                <h2>Experience the <span style="color:var(--gold);">Manara Quality</span> Difference</h2>
+                <p>Partner with us for seafood that meets the highest global standards.</p>
+            </div>
+            <a href="index.html#contact" class="btn animate-fade-right">
+                Get In Touch →
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER – Same as all pages
+    ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>MANARA GROUP</h3>
+                    <p>Global seafood partners delivering quality from ocean to world.</p>
+                </div>
+                <div>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why.html">Why Us</a></li>
+                        <li><a href="quality.html">Quality</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Products</h3>
+                    <ul>
+                        <li>Shrimp / Prawns</li>
+                        <li>Fin Fish</li>
+                        <li>Squid / Cuttlefish</li>
+                        <li>Crab &amp; Shellfish</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>Sobha Marina One<br />Ernakulam, Kerala, India<br />Pin: 682018</p>
+                    <p style="margin-top:10px;font-weight:500;color:#d0d0e0;">info@groupmanara.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2026 Manara Group. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ------------------------------------------------------------
+        // 1. Intersection Observer: Fade animations
+        // ------------------------------------------------------------
+        const animElements = document.querySelectorAll(
+            '.animate-fade-up, .animate-fade-left, .animate-fade-right, .animate-scale'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        animElements.forEach(el => observer.observe(el));
+
+        // ------------------------------------------------------------
+        // 2. Navbar shadow on scroll
+        // ------------------------------------------------------------
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ------------------------------------------------------------
+        // 3. Mobile dropdown toggle
+        // ------------------------------------------------------------
+        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    this.closest('.dropdown').classList.toggle('open');
+                }
+            });
+        });
+
+        // ------------------------------------------------------------
+        // 4. Smooth anchor scroll
+        // ------------------------------------------------------------
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

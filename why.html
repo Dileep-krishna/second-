@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Why choose Manara Group - Your trusted seafood partner for quality, sustainability, and global reach." />
+    <title>Why Choose Us | Manara Group</title>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+           ROOT & RESET – Same as Homepage / About
+           ============================================================ */
+        :root {
+            --maroon: #71152b;
+            --maroon2: #8b2038;
+            --gold: #e8b12f;
+            --gold-light: #f3d06e;
+            --ink: #0f0f1a;
+            --muted: #5a5a6e;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --line: #e9edf2;
+            --shadow-sm: 0 8px 30px rgba(20, 20, 30, 0.08);
+            --shadow-md: 0 18px 45px rgba(20, 20, 30, 0.12);
+            --shadow-lg: 0 30px 60px rgba(20, 20, 30, 0.15);
+            --radius: 12px;
+            --transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           UTILITY ANIMATIONS – Same as Homepage / About
+           ============================================================ */
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .kicker {
+            display: inline-block;
+            background: rgba(232, 177, 47, 0.15);
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(232, 177, 47, 0.2);
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-head .lead {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        h2 {
+            font-size: 38px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--ink);
+            margin: 10px 0 18px;
+            letter-spacing: -1px;
+        }
+
+        h2 span {
+            color: var(--maroon);
+        }
+
+        /* ============================================================
+           HEADER – Same as Homepage / About
+           ============================================================ */
+        header {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+            border-radius: var(--radius);
+            display: grid;
+            place-items: center;
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+            box-shadow: 0 6px 16px rgba(113, 21, 43, 0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--ink);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text .brand span {
+            color: var(--maroon);
+        }
+
+        .logo-text .tagline {
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--muted);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: var(--ink);
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon);
+            transition: width 0.3s var(--transition);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--maroon);
+        }
+
+        .btn-nav {
+            background: var(--maroon);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s var(--transition);
+            box-shadow: 0 4px 14px rgba(113, 21, 43, 0.25);
+        }
+
+        .btn-nav:hover {
+            background: var(--maroon2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(113, 21, 43, 0.35);
+        }
+
+        .btn-nav::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: 0;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--ink);
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-menu:hover {
+            background: var(--light);
+        }
+
+        /* ============================================================
+           DROPDOWN – Products Sub-menu
+           ============================================================ */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--ink);
+            font-weight: 500;
+            padding: 4px 0;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .dropdown-trigger::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon);
+            transition: width 0.3s var(--transition);
+        }
+
+        .dropdown:hover .dropdown-trigger::after,
+        .dropdown-trigger.active::after {
+            width: 100%;
+        }
+
+        .dropdown:hover .dropdown-trigger {
+            color: var(--maroon);
+        }
+
+        .dropdown .arrow {
+            font-size: 10px;
+            transition: transform 0.3s var(--transition);
+        }
+
+        .dropdown:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            background: var(--white);
+            min-width: 200px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 8px 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 22px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            transition: all 0.2s var(--transition);
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: var(--light);
+            color: var(--maroon);
+            padding-left: 28px;
+        }
+
+        .dropdown-menu li a::after {
+            display: none !important;
+        }
+
+        /* ============================================================
+           BUTTONS – Same as Homepage
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--maroon);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(113, 21, 43, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--maroon2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(113, 21, 43, 0.4);
+        }
+
+        .btn-outline {
+            border-color: var(--maroon);
+            color: var(--maroon);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--maroon);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(113, 21, 43, 0.15);
+        }
+
+        /* ============================================================
+           WHY HERO
+           ============================================================ */
+        .why-hero {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.97) 0%,
+                    rgba(255, 255, 255, 0.90) 40%,
+                    rgba(255, 255, 255, 0.10) 75%),
+                url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;
+            animation: scaleIn 1.2s var(--transition) forwards;
+        }
+
+        .why-hero .container {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .why-hero-content {
+            max-width: 620px;
+            padding: 40px 0;
+        }
+
+        .why-hero-content h1 {
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .why-hero-content h1 span {
+            color: var(--maroon);
+        }
+
+        .why-hero-content p {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .why-hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+           PILLARS (4 Core Reasons)
+           ============================================================ */
+        .pillars-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .pillar-card {
+            background: var(--light);
+            padding: 32px 24px 28px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.4s var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .pillar-card:hover {
+            background: var(--white);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-bottom-color: var(--gold);
+        }
+
+        .pillar-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(113, 21, 43, 0.08);
+            color: var(--maroon);
+            display: grid;
+            place-items: center;
+            font-size: 32px;
+            margin: 0 auto 16px;
+            transition: all 0.4s var(--transition);
+        }
+
+        .pillar-card:hover .pillar-icon {
+            background: var(--maroon);
+            color: var(--white);
+            transform: rotate(8deg) scale(1.05);
+            box-shadow: 0 8px 24px rgba(113, 21, 43, 0.2);
+        }
+
+        .pillar-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 8px;
+        }
+
+        .pillar-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           CERTIFICATIONS / BADGES
+           ============================================================ */
+        .certifications-section {
+            padding: 70px 0;
+            background: var(--light);
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px 50px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--white);
+            padding: 12px 28px 12px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s var(--transition);
+        }
+
+        .cert-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-item .cert-icon {
+            font-size: 28px;
+        }
+
+        .cert-item .cert-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .cert-item .cert-label small {
+            font-weight: 400;
+            color: var(--muted);
+            font-size: 12px;
+            display: block;
+        }
+
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        .testimonials-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            padding: 28px 24px;
+            border-radius: var(--radius);
+            transition: all 0.4s var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .testimonial-card:hover {
+            background: var(--white);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-6px);
+        }
+
+        .testimonial-card .stars {
+            color: var(--gold);
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card .client {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .client-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--line);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .testimonial-card .client-info strong {
+            display: block;
+            font-size: 14px;
+            color: var(--ink);
+        }
+
+        .testimonial-card .client-info span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* ============================================================
+           CTA – Same as Homepage / About
+           ============================================================ */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+            color: var(--white);
+        }
+
+        .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            margin: 0 0 6px;
+            font-size: 34px;
+        }
+
+        .cta p {
+            opacity: 0.85;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--maroon);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            font-weight: 700;
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============================================================
+           FOOTER – Same as Homepage / About
+           ============================================================ */
+        footer {
+            background: #0f0f1a;
+            color: #c8c8d4;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        footer h3 {
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        footer p,
+        footer li {
+            font-size: 13px;
+            color: #a0a0b4;
+            line-height: 1.7;
+        }
+
+        footer ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+
+        footer ul a {
+            transition: color 0.2s;
+        }
+
+        footer ul a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            padding-top: 22px;
+            text-align: center;
+            font-size: 13px;
+            color: #6a6a7e;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .why-hero {
+                min-height: 360px;
+                background-position: 60% center;
+            }
+            .why-hero .container {
+                min-height: 360px;
+            }
+            .why-hero-content h1 {
+                font-size: 38px;
+            }
+            .cta-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            /* Mobile dropdown fix */
+            .dropdown {
+                position: static;
+            }
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                opacity: 1;
+                pointer-events: auto;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding: 4px 0 8px 20px;
+                display: none;
+                transition: none;
+            }
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+            .dropdown .arrow {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            header {
+                height: 70px;
+            }
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+            .logo-text .brand {
+                font-size: 16px;
+            }
+            .why-hero {
+                min-height: 340px;
+            }
+            .why-hero .container {
+                min-height: 340px;
+            }
+            .why-hero-content h1 {
+                font-size: 32px;
+            }
+            .why-hero-content p {
+                font-size: 15px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .cert-grid {
+                gap: 16px;
+            }
+            .cert-item {
+                padding: 10px 18px 10px 14px;
+            }
+            .cert-item .cert-label {
+                font-size: 12px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .pillars-section,
+            .testimonials-section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta h2 {
+                font-size: 26px;
+            }
+            .why-hero-content h1 {
+                font-size: 28px;
+            }
+            .section-head .lead {
+                font-size: 14px;
+            }
+            .pillar-card {
+                padding: 24px 16px;
+            }
+            .testimonial-card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HEADER – Same as Homepage / About
+    ============================================================ -->
+    <header id="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">
+                    <span class="brand">GROUP <span>MANARA</span></span>
+                    <span class="tagline">global seafood partners</span>
+                </div>
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+
+                <!-- Products Dropdown -->
+                <div class="dropdown">
+                    <a href="#products" class="dropdown-trigger">
+                        Products <span class="arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#products">Exotic</a></li>
+                        <li><a href="index.html#products">Seafood</a></li>
+                        <li><a href="index.html#products">Meat</a></li>
+                        <li><a href="index.html#products">Poultry</a></li>
+                        <li><a href="index.html#products">Vegetables</a></li>
+                        <li><a href="index.html#products">Indian Breads</a></li>
+                        <li><a href="index.html#products">Breaded &amp; Wraps</a></li>
+                        <li><a href="index.html#products">Others</a></li>
+                    </ul>
+                </div>
+
+                <a href="why.html" class="active">Why Us</a>
+                <a href="index.html#quality">Quality</a>
+                <a href="index.html#sustainability">Sustainability</a>
+                <a href="index.html#contact" class="btn-nav">Get In Touch →</a>
+            </nav>
+
+            <button class="mobile-menu" onclick="alert('🚀 Navigation: Home | About | Products | Why Us | Quality | Sustainability | Contact')">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    WHY HERO
+    ============================================================ -->
+    <section class="why-hero">
+        <div class="container">
+            <div class="why-hero-content">
+                <span class="kicker animate-fade-up visible">Why Choose Us</span>
+                <h1 class="animate-fade-up visible" style="transition-delay:0.1s;">
+                    Your Trusted <span>Seafood Partner</span>
+                </h1>
+                <p class="animate-fade-up visible" style="transition-delay:0.2s;">
+                    At Manara Group, we combine international standards, sustainable practices,
+                    global logistics, and a customer-first approach to deliver exceptional
+                    seafood solutions worldwide.
+                </p>
+                <div class="why-hero-actions animate-fade-up visible" style="transition-delay:0.3s;">
+                    <a href="#pillars" class="btn btn-primary">Our Promise →</a>
+                    <a href="index.html#contact" class="btn btn-outline">Contact Us →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PILLARS – 4 Core Reasons
+    ============================================================ -->
+    <section class="pillars-section" id="pillars">
+        <div class="container">
+            <div class="section-head animate-fade-up">
+                <span class="kicker">Why Manara Group</span>
+                <h2>Four Pillars of <span>Trust</span></h2>
+                <p class="lead">Every decision we make is guided by these core principles that define our commitment to you.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card animate-scale" style="transition-delay:0.05s;">
+                    <div class="pillar-icon">✓</div>
+                    <h3>Quality You Can Trust</h3>
+                    <p>International standards at every step — from sourcing to processing to delivery.</p>
+                </div>
+
+                <div class="pillar-card animate-scale" style="transition-delay:0.10s;">
+                    <div class="pillar-icon">♧</div>
+                    <h3>Sustainable Practices</h3>
+                    <p>Responsible sourcing and eco-friendly processes for a better tomorrow.</p>
+                </div>
+
+                <div class="pillar-card animate-scale" style="transition-delay:0.15s;">
+                    <div class="pillar-icon">◎</div>
+                    <h3>Global Reach</h3>
+                    <p>Strong logistics network ensuring timely delivery across the world.</p>
+                </div>
+
+                <div class="pillar-card animate-scale" style="transition-delay:0.20s;">
+                    <div class="pillar-icon">♙</div>
+                    <h3>Customer First</h3>
+                    <p>Long-term relationships built on trust, transparency, and mutual growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CERTIFICATIONS / BADGES
+    ============================================================ -->
+    <section class="certifications-section animate-fade-up">
+        <div class="container">
+            <div class="section-head" style="margin-bottom:32px;">
+                <span class="kicker">Accreditations</span>
+                <h2>Recognized for <span>Excellence</span></h2>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <span class="cert-icon">🏅</span>
+                    <span class="cert-label">ISO 22000 <small>Food Safety Management</small></span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">🌊</span>
+                    <span class="cert-label">MSC Certified <small>Sustainable Seafood</small></span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">🔬</span>
+                    <span class="cert-label">HACCP <small>Hazard Analysis</small></span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">♻️</span>
+                    <span class="cert-label">Zero Waste <small>Eco-Friendly Operations</small></span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">🌍</span>
+                    <span class="cert-label">GlobalG.A.P. <small>Responsible Farming</small></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TESTIMONIALS
+    ============================================================ -->
+    <section class="testimonials-section animate-fade-up">
+        <div class="container">
+            <div class="section-head">
+                <span class="kicker">What Our Partners Say</span>
+                <h2>Trusted by <span>Global Clients</span></h2>
+                <p class="lead">Real feedback from real partners who rely on Manara Group for quality seafood.</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card animate-scale" style="transition-delay:0.05s;">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Manara Group's commitment to quality is unmatched. Their seafood always meets our strict European standards. A reliable partner for over 5 years."</blockquote>
+                    <div class="client">
+                        <div class="client-avatar">🇪🇺</div>
+                        <div class="client-info">
+                            <strong>Jean-Pierre Dubois</strong>
+                            <span>FreshSeafood EU, France</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-scale" style="transition-delay:0.10s;">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"From traceability to timely delivery, Manara Group has been our go-to supplier for premium shrimp and fish. Their customer service is exceptional."</blockquote>
+                    <div class="client">
+                        <div class="client-avatar">🇺🇸</div>
+                        <div class="client-info">
+                            <strong>Sarah Mitchell</strong>
+                            <span>OceanFresh Imports, USA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-scale" style="transition-delay:0.15s;">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"We value sustainability, and Manara Group shares that vision. Their MSC-certified products and transparent practices make them a trusted partner."</blockquote>
+                    <div class="client">
+                        <div class="client-avatar">🇯🇵</div>
+                        <div class="client-info">
+                            <strong>Kenji Tanaka</strong>
+                            <span>Tokyo Seafood Co., Japan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA – Same as Homepage / About
+    ============================================================ -->
+    <section class="cta">
+        <div class="container cta-inner">
+            <div class="animate-fade-left">
+                <h2>Ready to experience the <span style="color:var(--gold);">Manara difference</span>?</h2>
+                <p>Partner with us for premium seafood, sustainable practices, and global reach.</p>
+            </div>
+            <a href="index.html#contact" class="btn animate-fade-right">
+                Start Your Journey →
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER – Same as Homepage / About
+    ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>MANARA GROUP</h3>
+                    <p>Global seafood partners delivering quality from ocean to world.</p>
+                </div>
+                <div>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why.html">Why Us</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#quality">Quality</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Products</h3>
+                    <ul>
+                        <li>Shrimp / Prawns</li>
+                        <li>Fin Fish</li>
+                        <li>Squid / Cuttlefish</li>
+                        <li>Crab &amp; Shellfish</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>Sobha Marina One<br />Ernakulam, Kerala, India<br />Pin: 682018</p>
+                    <p style="margin-top:10px;font-weight:500;color:#d0d0e0;">info@groupmanara.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2026 Manara Group. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ------------------------------------------------------------
+        // 1. Intersection Observer: Fade animations
+        // ------------------------------------------------------------
+        const animElements = document.querySelectorAll(
+            '.animate-fade-up, .animate-fade-left, .animate-fade-right, .animate-scale'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        animElements.forEach(el => observer.observe(el));
+
+        // ------------------------------------------------------------
+        // 2. Navbar shadow on scroll
+        // ------------------------------------------------------------
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ------------------------------------------------------------
+        // 3. Mobile dropdown toggle
+        // ------------------------------------------------------------
+        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    this.closest('.dropdown').classList.toggle('open');
+                }
+            });
+        });
+
+        // ------------------------------------------------------------
+        // 4. Smooth anchor scroll
+        // ------------------------------------------------------------
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

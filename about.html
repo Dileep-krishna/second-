@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="About Manara Group - Diversified conglomerate with presence in Realty, Education, Hospitality, and Seafood." />
+    <title>About Us | Manara Group</title>
+
+    <!-- Google Fonts (Inter for modern look) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+           ROOT & RESET – Same as Homepage
+           ============================================================ */
+        :root {
+            --maroon: #71152b;
+            --maroon2: #8b2038;
+            --gold: #e8b12f;
+            --gold-light: #f3d06e;
+            --ink: #0f0f1a;
+            --muted: #5a5a6e;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --line: #e9edf2;
+            --shadow-sm: 0 8px 30px rgba(20, 20, 30, 0.08);
+            --shadow-md: 0 18px 45px rgba(20, 20, 30, 0.12);
+            --shadow-lg: 0 30px 60px rgba(20, 20, 30, 0.15);
+            --radius: 12px;
+            --transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           UTILITY ANIMATIONS – Same as Homepage
+           ============================================================ */
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+        }
+
+        .animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ============================================================
+           KICKER / SECTION TITLE
+           ============================================================ */
+        .kicker {
+            display: inline-block;
+            background: rgba(232, 177, 47, 0.15);
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(232, 177, 47, 0.2);
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-head .lead {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        h2 {
+            font-size: 38px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--ink);
+            margin: 10px 0 18px;
+            letter-spacing: -1px;
+        }
+
+        h2 span {
+            color: var(--maroon);
+        }
+
+        /* ============================================================
+           HEADER – Same as Homepage
+           ============================================================ */
+        header {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+            border-radius: var(--radius);
+            display: grid;
+            place-items: center;
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+            box-shadow: 0 6px 16px rgba(113, 21, 43, 0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--ink);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text .brand span {
+            color: var(--maroon);
+        }
+
+        .logo-text .tagline {
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--muted);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: var(--ink);
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon);
+            transition: width 0.3s var(--transition);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--maroon);
+        }
+
+        .btn-nav {
+            background: var(--maroon);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s var(--transition);
+            box-shadow: 0 4px 14px rgba(113, 21, 43, 0.25);
+        }
+
+        .btn-nav:hover {
+            background: var(--maroon2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(113, 21, 43, 0.35);
+        }
+
+        .btn-nav::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: 0;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--ink);
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-menu:hover {
+            background: var(--light);
+        }
+
+        /* ============================================================
+           ABOUT HERO
+           ============================================================ */
+        .about-hero {
+            min-height: 440px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.97) 0%,
+                    rgba(255, 255, 255, 0.90) 40%,
+                    rgba(255, 255, 255, 0.10) 75%),
+                url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;
+            animation: scaleIn 1.2s var(--transition) forwards;
+        }
+
+        .about-hero .container {
+            min-height: 440px;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-hero-content {
+            max-width: 580px;
+            padding: 40px 0;
+        }
+
+        .about-hero-content h1 {
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .about-hero-content h1 span {
+            color: var(--maroon);
+        }
+
+        .about-hero-content p {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .about-hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+           BUTTONS – Same as Homepage
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--maroon);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(113, 21, 43, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--maroon2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(113, 21, 43, 0.4);
+        }
+
+        .btn-outline {
+            border-color: var(--maroon);
+            color: var(--maroon);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--maroon);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(113, 21, 43, 0.15);
+        }
+
+        /* ============================================================
+           ABOUT GRID (Story, Mission, Vision, Values)
+           ============================================================ */
+        .about-grid-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .about-card {
+            background: var(--light);
+            padding: 32px 24px 28px;
+            border-radius: var(--radius);
+            transition: all 0.4s var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .about-card:hover {
+            background: var(--white);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-bottom-color: var(--gold);
+        }
+
+        .about-card-icon {
+            font-size: 38px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .about-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .about-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .about-card .values-list {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+
+        .about-card .values-list li {
+            font-size: 14px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-card .values-list li::before {
+            content: "◆";
+            color: var(--gold);
+            font-size: 10px;
+        }
+
+        /* ============================================================
+           BUSINESS VERTICALS
+           ============================================================ */
+        .verticals-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .vertical-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .vertical-item {
+            background: var(--white);
+            padding: 32px 24px 28px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s var(--transition);
+            border-top: 4px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vertical-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: height 0.3s var(--transition);
+        }
+
+        .vertical-item:hover::after {
+            height: 6px;
+        }
+
+        .vertical-item.realty {
+            border-top-color: #2c3e50;
+        }
+        .vertical-item.realty::after {
+            background: #2c3e50;
+        }
+        .vertical-item.school {
+            border-top-color: #2980b9;
+        }
+        .vertical-item.school::after {
+            background: #2980b9;
+        }
+        .vertical-item.hospitality {
+            border-top-color: #e67e22;
+        }
+        .vertical-item.hospitality::after {
+            background: #e67e22;
+        }
+        .vertical-item.seafood {
+            border-top-color: var(--gold);
+        }
+        .vertical-item.seafood::after {
+            background: var(--gold);
+        }
+
+        .vertical-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .vertical-icon {
+            font-size: 42px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .vertical-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 8px;
+        }
+
+        .vertical-item p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+           LEADERSHIP
+           ============================================================ */
+        .leadership-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .leader-card {
+            background: var(--light);
+            padding: 32px 24px 28px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.4s var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .leader-card:hover {
+            background: var(--white);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+        }
+
+        .leader-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 4px solid var(--gold);
+            overflow: hidden;
+            transition: border-color 0.3s var(--transition);
+            background: var(--line);
+            display: grid;
+            place-items: center;
+            font-size: 48px;
+        }
+
+        .leader-card:hover .leader-avatar {
+            border-color: var(--maroon);
+        }
+
+        .leader-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+
+        .leader-role {
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 600;
+            margin: 4px 0 10px;
+        }
+
+        .leader-bio {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .leader-quote {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--maroon);
+            display: block;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* ============================================================
+           CTA – Same as Homepage
+           ============================================================ */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+            color: var(--white);
+        }
+
+        .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            margin: 0 0 6px;
+            font-size: 34px;
+        }
+
+        .cta p {
+            opacity: 0.85;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--maroon);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            font-weight: 700;
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============================================================
+           FOOTER – Same as Homepage
+           ============================================================ */
+        footer {
+            background: #0f0f1a;
+            color: #c8c8d4;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        footer h3 {
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        footer p,
+        footer li {
+            font-size: 13px;
+            color: #a0a0b4;
+            line-height: 1.7;
+        }
+
+        footer ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+
+        footer ul a {
+            transition: color 0.2s;
+        }
+
+        footer ul a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            padding-top: 22px;
+            text-align: center;
+            font-size: 13px;
+            color: #6a6a7e;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .vertical-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .about-hero {
+                min-height: 380px;
+                background-position: 60% center;
+            }
+            .about-hero .container {
+                min-height: 380px;
+            }
+            .about-hero-content h1 {
+                font-size: 38px;
+            }
+            .cta-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 720px) {
+            header {
+                height: 70px;
+            }
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+            .logo-text .brand {
+                font-size: 16px;
+            }
+            .about-hero {
+                min-height: 360px;
+            }
+            .about-hero .container {
+                min-height: 360px;
+            }
+            .about-hero-content h1 {
+                font-size: 32px;
+            }
+            .about-hero-content p {
+                font-size: 15px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            .vertical-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .about-grid-section,
+            .verticals-section,
+            .leadership-section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta h2 {
+                font-size: 26px;
+            }
+            .about-hero-content h1 {
+                font-size: 28px;
+            }
+            .section-head .lead {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HEADER – Same as Homepage
+    ============================================================ -->
+    <header id="header">
+        <div class="container nav">
+            <a href="#" class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">
+                    <span class="brand">GROUP <span>MANARA</span></span>
+                    <span class="tagline">global seafood partners</span>
+                </div>
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#" class="active">About Us</a>
+                <a href="index.html#products">Products</a>
+                <a href="index.html#quality">Quality</a>
+                <a href="index.html#sustainability">Sustainability</a>
+                <a href="index.html#contact" class="btn-nav">Get In Touch →</a>
+            </nav>
+
+            <button class="mobile-menu" onclick="alert('🚀 Navigation: Home | About | Products | Quality | Sustainability | Contact')">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    ABOUT HERO
+    ============================================================ -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <span class="kicker animate-fade-up visible">About Manara Group</span>
+                <h1 class="animate-fade-up visible" style="transition-delay:0.1s;">
+                    Building a Legacy<br />
+                    <span>Across Diverse Industries</span>
+                </h1>
+                <p class="animate-fade-up visible" style="transition-delay:0.2s;">
+                    Manara Group is a diversified conglomerate with a strong presence in
+                    Realty, Education, Hospitality, and Seafood Export. With over two decades
+                    of excellence, we are committed to creating value across every sector we operate in.
+                </p>
+                <div class="about-hero-actions animate-fade-up visible" style="transition-delay:0.3s;">
+                    <a href="#story" class="btn btn-primary">Our Story →</a>
+                    <a href="#leadership" class="btn btn-outline">Leadership →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ABOUT GRID (Story, Mission, Vision, Values)
+    ============================================================ -->
+    <section class="about-grid-section" id="story">
+        <div class="container">
+            <div class="section-head animate-fade-up">
+                <span class="kicker">Who We Are</span>
+                <h2>Our Story, Mission, Vision &amp; <span>Values</span></h2>
+                <p class="lead">These guiding principles shape every decision we make and every relationship we build.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card animate-scale" style="transition-delay:0.05s;">
+                    <span class="about-card-icon">📖</span>
+                    <h3>Our Story</h3>
+                    <p>
+                        Founded in 2000, Manara Group began as a small seafood trading
+                        company and has since grown into a multi-sector powerhouse.
+                        Our journey is defined by resilience, innovation, and an
+                        unwavering commitment to quality.
+                    </p>
+                </div>
+
+                <div class="about-card animate-scale" style="transition-delay:0.10s;">
+                    <span class="about-card-icon">🎯</span>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To deliver excellence across all our business verticals by
+                        combining global best practices with local expertise, while
+                        creating sustainable value for our stakeholders and communities.
+                    </p>
+                </div>
+
+                <div class="about-card animate-scale" style="transition-delay:0.15s;">
+                    <span class="about-card-icon">👁️</span>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To be a globally recognized conglomerate that sets benchmarks
+                        in quality, innovation, and social responsibility across
+                        Realty, Education, Hospitality, and Seafood sectors.
+                    </p>
+                </div>
+
+                <div class="about-card animate-scale" style="transition-delay:0.20s;">
+                    <span class="about-card-icon">💎</span>
+                    <h3>Our Values</h3>
+                    <ul class="values-list">
+                        <li>Integrity &amp; Transparency</li>
+                        <li>Customer First Approach</li>
+                        <li>Innovation &amp; Excellence</li>
+                        <li>Sustainability &amp; Responsibility</li>
+                        <li>People &amp; Community Focus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    BUSINESS VERTICALS
+    ============================================================ -->
+    <section class="verticals-section" id="verticals">
+        <div class="container">
+            <div class="section-head animate-fade-up">
+                <span class="kicker">What We Do</span>
+                <h2>Our Business <span>Verticals</span></h2>
+                <p class="lead">Four pillars of strength, each built on a foundation of quality and trust.</p>
+            </div>
+
+            <div class="vertical-grid">
+                <div class="vertical-item realty animate-scale" style="transition-delay:0.05s;">
+                    <span class="vertical-icon">🏢</span>
+                    <h4>REALTY</h4>
+                    <p>Premium residential &amp; commercial properties designed for modern living.</p>
+                </div>
+                <div class="vertical-item school animate-scale" style="transition-delay:0.10s;">
+                    <span class="vertical-icon">🎓</span>
+                    <h4>SCHOOL</h4>
+                    <p>World-class educational institutions nurturing the leaders of tomorrow.</p>
+                </div>
+                <div class="vertical-item hospitality animate-scale" style="transition-delay:0.15s;">
+                    <span class="vertical-icon">🏨</span>
+                    <h4>HOSPITALITY</h4>
+                    <p>Luxury hotels and fine dining experiences that redefine comfort.</p>
+                </div>
+                <div class="vertical-item seafood animate-scale" style="transition-delay:0.20s;">
+                    <span class="vertical-icon">🦐</span>
+                    <h4>SEAFOOD</h4>
+                    <p>Premium seafood export, bringing the finest catch from ocean to world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    LEADERSHIP
+    ============================================================ -->
+    <section class="leadership-section" id="leadership">
+        <div class="container">
+            <div class="section-head animate-fade-up">
+                <span class="kicker">Our Leaders</span>
+                <h2>Meet Our <span>Leadership Team</span></h2>
+                <p class="lead">Visionaries who drive our success with passion, integrity, and a relentless pursuit of excellence.</p>
+            </div>
+
+            <div class="leadership-grid">
+                <div class="leader-card animate-scale" style="transition-delay:0.05s;">
+                    <div class="leader-avatar">👨‍💼</div>
+                    <h4>Ahmed Al-Mansoori</h4>
+                    <p class="leader-role">Founder &amp; Chairman</p>
+                    <p class="leader-bio">
+                        With over 25 years of experience, Ahmed is the visionary force
+                        behind Manara Group's diverse portfolio.
+                    </p>
+                    <span class="leader-quote">"Building a better tomorrow, today."</span>
+                </div>
+
+                <div class="leader-card animate-scale" style="transition-delay:0.10s;">
+                    <div class="leader-avatar">👩‍💼</div>
+                    <h4>Fatima Al-Rashid</h4>
+                    <p class="leader-role">CEO, Seafood Division</p>
+                    <p class="leader-bio">
+                        A pioneer in sustainable seafood practices, Fatima ensures our
+                        products meet the highest global standards.
+                    </p>
+                    <span class="leader-quote">"Quality is our signature."</span>
+                </div>
+
+                <div class="leader-card animate-scale" style="transition-delay:0.15s;">
+                    <div class="leader-avatar">👨‍💼</div>
+                    <h4>Khalid Al-Saud</h4>
+                    <p class="leader-role">CEO, Realty &amp; Hospitality</p>
+                    <p class="leader-bio">
+                        Khalid brings a wealth of knowledge in luxury real estate and
+                        hospitality, creating iconic spaces.
+                    </p>
+                    <span class="leader-quote">"Building spaces that inspire."</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA – Same as Homepage
+    ============================================================ -->
+    <section class="cta" id="contact">
+        <div class="container cta-inner">
+            <div class="animate-fade-left">
+                <h2>Ready to <span style="color:var(--gold);">Partner</span> with Us?</h2>
+                <p>Whether you're looking for premium seafood, prime real estate, world-class education, or luxurious hospitality, we are here to serve you.</p>
+            </div>
+            <a href="mailto:info@groupmanara.com" class="btn animate-fade-right">
+                Get In Touch →
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER – Same as Homepage
+    ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>MANARA GROUP</h3>
+                    <p>Global seafood partners delivering quality from ocean to world.</p>
+                </div>
+                <div>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#quality">Quality</a></li>
+                        <li><a href="index.html#sustainability">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Products</h3>
+                    <ul>
+                        <li>Shrimp / Prawns</li>
+                        <li>Fin Fish</li>
+                        <li>Squid / Cuttlefish</li>
+                        <li>Crab &amp; Shellfish</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>Sobha Marina One<br />Ernakulam, Kerala, India<br />Pin: 682018</p>
+                    <p style="margin-top:10px;font-weight:500;color:#d0d0e0;">info@groupmanara.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2026 Manara Group. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ------------------------------------------------------------
+        // 1. Intersection Observer: Fade animations
+        // ------------------------------------------------------------
+        const animElements = document.querySelectorAll(
+            '.animate-fade-up, .animate-fade-left, .animate-fade-right, .animate-scale'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        animElements.forEach(el => observer.observe(el));
+
+        // ------------------------------------------------------------
+        // 2. Navbar shadow on scroll
+        // ------------------------------------------------------------
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ------------------------------------------------------------
+        // 3. Smooth anchor scroll
+        // ------------------------------------------------------------
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
